@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Meta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Descricao" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cpf" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cep" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Idade" Type="int" Nullable="false" />
+    <Property Name="Cargo" Type="int" Nullable="false" />
+    <Property Name="Departamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Horas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Horas" Type="int" Nullable="false" />
+    <Property Name="Periodo" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Funcionario" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Senha" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Funcionarios_Cargos">
+    <End Role="Cargos" Type="Self.Cargos" Multiplicity="1" />
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Cargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Funcionarios_Departamentos">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Horas_Funcionarios">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="0..1" />
+    <End Role="Horas" Type="Self.Horas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Horas">
+        <PropertyRef Name="Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="Cargos" EntityType="Self.Cargos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Horas" EntityType="Self.Horas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Funcionarios_Cargos" Association="Self.FK_Funcionarios_Cargos">
+      <End Role="Cargos" EntitySet="Cargos" />
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Funcionarios_Departamentos" Association="Self.FK_Funcionarios_Departamentos">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horas_Funcionarios" Association="Self.FK_Horas_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Horas" EntitySet="Horas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

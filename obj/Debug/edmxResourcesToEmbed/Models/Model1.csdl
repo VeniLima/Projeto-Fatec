@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Meta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Funcionarios_Cargos" FromRole="Cargos" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Funcionarios_Departamentos" FromRole="Departamentos" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cep" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Idade" Type="Int32" Nullable="false" />
+    <Property Name="Cargo" Type="Int32" Nullable="false" />
+    <Property Name="Departamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cargos" Relationship="Self.FK_Funcionarios_Cargos" FromRole="Funcionarios" ToRole="Cargos" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_Funcionarios_Departamentos" FromRole="Funcionarios" ToRole="Departamentos" />
+    <NavigationProperty Name="Horas" Relationship="Database1Model.FK_Horas_Funcionarios" FromRole="Funcionarios" ToRole="Horas" />
+  </EntityType>
+  <EntityType Name="Horas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Horas1" Type="Int32" Nullable="false" />
+    <Property Name="Periodo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Funcionario" Type="Int32" />
+    <NavigationProperty Name="Funcionarios" Relationship="Database1Model.FK_Horas_Funcionarios" FromRole="Horas" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Funcionarios_Cargos">
+    <End Role="Cargos" Type="Self.Cargos" Multiplicity="1" />
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Cargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Funcionarios_Departamentos">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cargos" EntityType="Self.Cargos" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
+    <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" />
+    <EntitySet Name="Horas" EntityType="Self.Horas" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Funcionarios_Cargos" Association="Self.FK_Funcionarios_Cargos">
+      <End Role="Cargos" EntitySet="Cargos" />
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Funcionarios_Departamentos" Association="Self.FK_Funcionarios_Departamentos">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horas_Funcionarios" Association="Database1Model.FK_Horas_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Horas" EntitySet="Horas" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Horas_Funcionarios">
+    <End Type="Database1Model.Funcionarios" Role="Funcionarios" Multiplicity="0..1" />
+    <End Type="Database1Model.Horas" Role="Horas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Horas">
+        <PropertyRef Name="Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
