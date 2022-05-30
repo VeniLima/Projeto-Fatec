@@ -28,18 +28,14 @@ namespace AgoraVaiRecursosHumanos.Controllers
              {
                  ViewBag.erroSenha = "Erro Senha";
              }
-             
-             //verificando se o usuario exeite no banco de dados
-             //expressão lambda com Linq            
+                    
              var vLogin = db.Usuarios.Where(p => p.Login.Trim().Equals(login.Trim())).FirstOrDefault();
              if(vLogin != null)
              {
-                 //chegando nesse ponto, o usuario existe
-                 //verificando então se a senha confere
+
                  if(Equals(vLogin.Senha.Trim(), senha.Trim()))
                  {
-                     //chegando aqui significa que login e senha são validos
-                     //criar uma sessão para o navegador
+
 
                      Session["Nome"] = "Logado";
                      Session["Perfil"] = "Admin";
@@ -52,19 +48,15 @@ namespace AgoraVaiRecursosHumanos.Controllers
                  }
                  else
                  {
-                     /*Escreve na tela a mensagem de erro informada*/
-                       ViewBag.erroSenha = "Senha informada Inválida!!!";
-                    /*Retorna a tela de login*/
+
                     return View();
             }
 
                 }       
             else
             {
-    /*Escreve na tela a mensagem de erro informada*/
-    ViewBag.erroLogin = "Nome de Usuário informado inválido!!!";
-    /*Retorna a tela de login*/
-    return View();
+  
+                return View();
 
             }
 
@@ -73,8 +65,7 @@ return View();
 
         public ActionResult Logout()
         {
-            //chegando aqui, devemos destruir as sessões
-            //redirecionar para a pagina de login
+ 
             Session.Clear();
             return RedirectToAction("Login", "Home");
 
