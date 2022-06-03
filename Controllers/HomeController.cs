@@ -37,8 +37,8 @@ namespace AgoraVaiRecursosHumanos.Controllers
                  {
 
 
-                     Session["Nome"] = "Logado";
-                     Session["Perfil"] = "Admin";
+                     Session["Nome"] = vLogin.Login;
+                     Session["Perfil"] = vLogin.Id;
 
                      return RedirectToAction("Guia", "Home");
 
@@ -73,6 +73,11 @@ return View();
 
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
         {
             return View();
         }

@@ -17,7 +17,15 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Cargos
         public ActionResult Index()
         {
-            return View(db.Cargos.ToList());
+            if(Session.Count != 0)
+            {
+                return View(db.Cargos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // GET: Cargos/Details/5
@@ -38,7 +46,15 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Cargos/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session.Count != 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // POST: Cargos/Create
