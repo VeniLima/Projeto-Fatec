@@ -25,8 +25,7 @@
                     {
                 <li>@Html.ActionLink("Início", "Index", "Home")</li>
                                 <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                                                <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-}
+                                                <li>@Html.ActionLink("Contato", "Contact", "Home")</li>}
 
                     @if (Session.Count != 0)
                     {
@@ -35,12 +34,10 @@
                                 <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
                                                 <li>@Html.ActionLink("Departamentos", "Index", "Departamentos")</li>
                                                                 <li>@Html.ActionLink("Horas", "Create", "Horas")</li>
+                                                                                <li>@Html.ActionLink("Olá, " + (Session["Nome"]) as string, "Details/" + (@Session["Perfil"]) as string, "Usuarios")</li>
 
-                                                                                                <li class="">@Html.ActionLink("Olá, " + (Session["Nome"]) as string, "Details/" + (@Session["Perfil"]) as string, "Usuarios")</li>
-
-                                                                                                                <li class="">@Html.ActionLink("Sair", "Logout", "Home")</li>}
-                </ul>
-
+                                                                                                <li class="">@Html.ActionLink("Sair", "Logout", "Home")</li>}
+              
             </div>
           
         </div>

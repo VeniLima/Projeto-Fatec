@@ -17,13 +17,23 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Departamentos
         public ActionResult Index()
         {
-            return View(db.Departamentos.ToList());
+            if (Session.Count != 0)
+            {
+               return View(db.Departamentos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+           
         }
 
         // GET: Departamentos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -33,12 +43,27 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 return HttpNotFound();
             }
             return View(departamentos);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            
         }
 
         // GET: Departamentos/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session.Count != 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // POST: Departamentos/Create
@@ -61,7 +86,9 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Departamentos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -71,6 +98,13 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 return HttpNotFound();
             }
             return View(departamentos);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            
         }
 
         // POST: Departamentos/Edit/5
@@ -92,7 +126,9 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Departamentos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
+            {
+                  if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -102,6 +138,12 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 return HttpNotFound();
             }
             return View(departamentos);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+          
         }
 
         // POST: Departamentos/Delete/5

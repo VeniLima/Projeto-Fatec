@@ -31,16 +31,25 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Cargos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cargos cargos = db.Cargos.Find(id);
+                if (cargos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cargos);
             }
-            Cargos cargos = db.Cargos.Find(id);
-            if (cargos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Home");
             }
-            return View(cargos);
+
+            
         }
 
         // GET: Cargos/Create
@@ -77,16 +86,25 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Cargos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cargos cargos = db.Cargos.Find(id);
+                if (cargos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cargos);
             }
-            Cargos cargos = db.Cargos.Find(id);
-            if (cargos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Home");
             }
-            return View(cargos);
+
+            
         }
 
         // POST: Cargos/Edit/5
@@ -108,16 +126,25 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Cargos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cargos cargos = db.Cargos.Find(id);
+                if (cargos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cargos);
             }
-            Cargos cargos = db.Cargos.Find(id);
-            if (cargos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Home");
             }
-            return View(cargos);
+
+           
         }
 
         // POST: Cargos/Delete/5

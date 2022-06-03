@@ -17,14 +17,24 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Horas
         public ActionResult Index()
         {
-            var horas = db.Horas.Include(h => h.Funcionarios);
-            return View(horas.ToList());
+            if (Session.Count != 0)
+            {
+                var horas = db.Horas.Include(h => h.Funcionarios);
+                return View(horas.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // GET: Horas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -34,13 +44,27 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 return HttpNotFound();
             }
             return View(horas);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // GET: Horas/Create
         public ActionResult Create()
         {
-            ViewBag.Funcionario = new SelectList(db.Funcionarios, "Id", "Nome");
-            return View();
+            if (Session.Count != 0)
+            {
+                ViewBag.Funcionario = new SelectList(db.Funcionarios, "Id", "Nome");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         // POST: Horas/Create
@@ -64,7 +88,10 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Horas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+
+            if (Session.Count != 0)
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -75,6 +102,13 @@ namespace AgoraVaiRecursosHumanos.Controllers
             }
             ViewBag.Funcionario = new SelectList(db.Funcionarios, "Id", "Nome", horas.Funcionario);
             return View(horas);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            
         }
 
         // POST: Horas/Edit/5
@@ -97,7 +131,9 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Horas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session.Count != 0)
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -107,6 +143,13 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 return HttpNotFound();
             }
             return View(horas);
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            
         }
 
         // POST: Horas/Delete/5
