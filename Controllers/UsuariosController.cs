@@ -55,14 +55,14 @@ namespace AgoraVaiRecursosHumanos.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            if (Session.Count != 0)
-            {
+            //if (Session.Count != 0)
+            //{
                 return View();
-            }
-            else
-            {
-                return RedirectToAction("Error", "Home");
-            }
+            //}
+           // else
+           // {
+            //    return RedirectToAction("Error", "Home");
+            //}
             
         }
 
