@@ -226,6 +226,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Guia.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Horas\Create.cshtml" />
+    <Content Include="Views\Horas\Delete.cshtml" />
+    <Content Include="Views\Horas\Details.cshtml" />
+    <Content Include="Views\Horas\Edit.cshtml" />
+    <Content Include="Views\Horas\Index.cshtml" />
     <Content Include="Views\Cargos\Create.cshtml" />
     <Content Include="Views\Cargos\Delete.cshtml" />
     <Content Include="Views\Cargos\Details.cshtml" />
@@ -241,20 +255,6 @@
     <Content Include="Views\Funcionarios\Details.cshtml" />
     <Content Include="Views\Funcionarios\Edit.cshtml" />
     <Content Include="Views\Funcionarios\Index.cshtml" />
-    <Content Include="Views\Usuarios\Create.cshtml" />
-    <Content Include="Views\Usuarios\Delete.cshtml" />
-    <Content Include="Views\Usuarios\Details.cshtml" />
-    <Content Include="Views\Usuarios\Edit.cshtml" />
-    <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Guia.cshtml" />
-    <Content Include="Views\Horas\Create.cshtml" />
-    <Content Include="Views\Horas\Delete.cshtml" />
-    <Content Include="Views\Horas\Details.cshtml" />
-    <Content Include="Views\Horas\Edit.cshtml" />
-    <Content Include="Views\Horas\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
