@@ -5,9 +5,118 @@
 
 <div class="container">
     <h1>O que desejá fazer?</h1>
-    <a class="btn btn-primary" href="/Funcionarios">Funcionarios</a>
-    <a class="btn btn-primary" href="/Cargos">Cargos</a>
-    <a class="btn btn-primary" href="/Departamentos">Departamentos</a>
-    <a class="btn btn-primary" href="/Horas/Create">Atribuir horas</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#modalFuncionarios">Funcionarios</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#modalCargos">Cargos</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#modalDepartamentos">Departamentos</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#modalHoras">Atribuição de horas</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#modalUsuarios">Cadastrar novo administrador</a>
 </div>
 
+<!--Modal Funcionarios-->
+<div id="modalFuncionarios" class="modal" tabindex="-1" role="dialog" style="background-color: #000;">
+    <div class="modal-dialog" role="dialog">
+        <div class="content">
+            <div class="modal-header">
+                <h2 class="modal-title">Escolha uma opção:</h2>
+                <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+            </div>
+
+            <div class="modal-body">
+                <a class="btn btn-primary" href="/Funcionarios/Create">Cadastrar</a>
+                <a class="btn btn-primary" href="/Funcionarios">Consultar</a>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!--Modal Cargos-->
+    <div id="modalCargos" class="modal" tabindex="-1" role="dialog" style="background-color: #000;">
+        <div class="modal-dialog" role="dialog">
+            <div class="content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Escolha uma opção:</h2>
+                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <a class="btn btn-primary" href="/Cargos/Create">Cadastrar</a>
+                    <a class="btn btn-primary" href="/Cargos">Consultar</a>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Departamentos-->
+    <div id="modalDepartamentos" class="modal" tabindex="-1" role="dialog"  style="background-color: #000;">
+        <div class="modal-dialog" role="dialog">
+            <div class="content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Escolha uma opção:</h2>
+                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <a class="btn btn-primary" href="/Departamentos/Create">Cadastrar</a>
+                    <a class="btn btn-primary" href="/Departamentos">Consultar</a>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal Horas-->
+
+    <div id="modalHoras" class="modal" tabindex="-1" role="dialog" style="background-color: #000;">
+        <div class="modal-dialog" role="dialog">
+            <div class="content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Escolha uma opção:</h2>
+                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <a class="btn btn-primary" href="/Horas/Create">Cadastrar</a>
+                    <a class="btn btn-primary" href="/Horas">Consultar</a>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Modal Usuarios-->
+    <div id="modalUsuarios" class="modal" tabindex="-1" role="dialog" style="background-color: #000;">
+        <div class="modal-dialog" role="dialog">
+            <div class="content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Escolha uma opção:</h2>
+                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <a class="btn btn-primary" href="/Usuarios/Create">Cadastrar</a>
+                    <a class="btn btn-primary" href="/Usuarios">Consultar</a>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
