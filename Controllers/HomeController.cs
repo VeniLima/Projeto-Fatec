@@ -18,54 +18,54 @@ namespace AgoraVaiRecursosHumanos.Controllers
         }
 
         [HttpPost]
-         public ActionResult Login(String login, String senha)
+        public ActionResult Login(String login, String senha)
         {
-             if(login == null || login == "")
-             {
-                 ViewBag.erroLogin = "Erro Login";
-             }
-             if(senha == null || senha == "")
-             {
-                 ViewBag.erroSenha = "Erro Senha";
-             }
-                    
-             var vLogin = db.Usuarios.Where(p => p.Login.Trim().Equals(login.Trim())).FirstOrDefault();
-             if(vLogin != null)
-             {
-
-                 if(Equals(vLogin.Senha.Trim(), senha.Trim()))
-                 {
-
-
-                     Session["Nome"] = vLogin.Login;
-                     Session["Perfil"] = vLogin.Id;
-
-                     return RedirectToAction("Guia", "Home");
-
-
-
-
-                 }
-                 else
-                 {
-
-                    return View();
+            if (login == null || login == "")
+            {
+                ViewBag.erroLogin = "Erro Login";
+            }
+            if (senha == null || senha == "")
+            {
+                ViewBag.erroSenha = "Erro Senha";
             }
 
-                }       
+            var vLogin = db.Usuarios.Where(p => p.Login.Trim().Equals(login.Trim())).FirstOrDefault();
+            if (vLogin != null)
+            {
+
+                if (Equals(vLogin.Senha.Trim(), senha.Trim()))
+                {
+
+
+                    Session["Nome"] = vLogin.Login;
+                    Session["Perfil"] = vLogin.Id;
+
+                    return RedirectToAction("Guia", "Home");
+
+
+
+
+                }
+                else
+                {
+
+                    return View();
+                }
+
+            }
             else
             {
-  
+
                 return View();
 
             }
 
-return View();
+            return View();
         }
 
         public ActionResult Logout()
         {
- 
+
             Session.Clear();
             return RedirectToAction("Login", "Home");
 
@@ -84,7 +84,15 @@ return View();
 
         public ActionResult Guia()
         {
-            return View();
+            if(Session.Count != 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         public ActionResult About()

@@ -2,7 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<style>
+    body {
+        background-color: rgba(146, 213, 235, 0.7);
+    }
+</style>
+
+<div class="jumbotron" style="background-image: url('https://i2.wp.com/escalasdetrabalho.com.br/wp-content/uploads/2019/03/postrh_blog.png?resize=800%2C500&ssl=1'); background-repeat: no-repeat; background-size: cover ; display:block; padding:100px 300px 300px 100px">
     <h1>Sistema de Recursos Humano</h1>
     <p class="lead">Sistema desenvolvido para a materia de projeto de engenharia de software</p>
     <p><a href="https://github.com/VeniLima/Projeto-Fatec" class="btn btn-primary btn-lg">Codigo Fonte</a></p>
@@ -14,12 +20,12 @@
         <p>
             Caso já seja cadastrado no sistema, clique no botão abaixo para se conectar
         </p>
-        <p><a class="btn btn-default" href="/Home/Login">Conecte-se &raquo;</a></p>
+        <p><a class="btn btn-primary" href="/Home/Login">Conecte-se &raquo;</a></p>
     </div>
     <div class="col-md-6">
         <h2>Fui contratado recentemente</h2>
         <p >Caso ainda não tenha cadastro, clique no botão abaixo para se cadastrar</p>
-        <p><a class="btn btn-default" href="/Usuarios/Create">Cadastra-se &raquo;</a></p>
+        <p><a class="btn btn-primary" href="/Usuarios/Create">Cadastra-se &raquo;</a></p>
     </div>
     
 </div>
