@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Departamentos.Nome)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <a class="btn btn-success" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
+            <a class="btn btn-warning" href="/Funcionarios/edit/@item.Id">Editar </a> |
+            <a class="btn btn-danger" href="/Funcionarios/delete/@item.Id">Excluir </a>
         </td>
     </tr>
 }
