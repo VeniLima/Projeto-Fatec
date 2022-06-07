@@ -5,8 +5,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Meta" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nchar" MaxLength="10" />
+    <Property Name="Meta" Type="int" />
   </EntityType>
   <EntityType Name="Departamentos">
     <Key>

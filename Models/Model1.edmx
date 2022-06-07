@@ -10,8 +10,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Meta" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nchar" MaxLength="10" />
+          <Property Name="Meta" Type="int" />
         </EntityType>
         <EntityType Name="Departamentos">
           <Key>
@@ -114,8 +114,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Meta" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Meta" Type="Int32" />
           <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Funcionarios_Cargos" FromRole="Cargos" ToRole="Funcionarios" />
         </EntityType>
         <EntityType Name="Departamentos">

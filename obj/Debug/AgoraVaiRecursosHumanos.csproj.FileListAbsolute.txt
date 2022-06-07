@@ -173,7 +173,6 @@ C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\bin\pt-br\System.Web.Razo
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.csproj.AssemblyReference.cache
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.csproj.CoreCompileInputs.cache
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.csproj.CopyComplete
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.dll

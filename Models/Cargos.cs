@@ -22,7 +22,7 @@ namespace AgoraVaiRecursosHumanos.Models
     
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Meta { get; set; }
+        public Nullable<int> Meta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Funcionarios> Funcionarios { get; set; }
