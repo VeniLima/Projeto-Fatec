@@ -152,7 +152,9 @@ namespace AgoraVaiRecursosHumanos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            
             Cargos cargos = db.Cargos.Find(id);
+            
             db.Cargos.Remove(cargos);
             db.SaveChanges();
             return RedirectToAction("Index");

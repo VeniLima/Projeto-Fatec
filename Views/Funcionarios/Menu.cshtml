@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Como deseja realizar a consulta?</h2>
+<br />
+
+<ul class="list-group">
+    <li class=""><a class="btn btn-primary">Todos</a></li>
+    <br />
+    <h3>Filtrado por cargos</h3>
+    @foreach (var cargo in Model) { 
+    <li class=""><a class="btn btn-primary" href="/Funcionarios/List/@cargo.Id">@cargo.Nome</a></li>
+    <br />
+    }
+                                                 
+        
+            
+        
+</ul>
+
+<a class="btn btn-primary">Voltar</a>

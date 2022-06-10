@@ -77,7 +77,7 @@ namespace AgoraVaiRecursosHumanos.Controllers
             {
                 db.Usuarios.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Index", "Usuarios");
             }
 
             return View(usuarios);
@@ -151,9 +151,13 @@ namespace AgoraVaiRecursosHumanos.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Usuarios usuarios = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuarios);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            
+                
+                db.Usuarios.Remove(usuarios);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            
+           
         }
 
         protected override void Dispose(bool disposing)

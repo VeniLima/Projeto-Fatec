@@ -255,6 +255,8 @@
     <Content Include="Views\Funcionarios\Details.cshtml" />
     <Content Include="Views\Funcionarios\Edit.cshtml" />
     <Content Include="Views\Funcionarios\Index.cshtml" />
+    <Content Include="Views\Funcionarios\Menu.cshtml" />
+    <Content Include="Views\Funcionarios\List.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

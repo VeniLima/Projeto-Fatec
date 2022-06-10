@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="nchar" MaxLength="10" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
           <Property Name="Meta" Type="int" />
         </EntityType>
         <EntityType Name="Departamentos">
@@ -18,8 +18,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Descricao" Type="text" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descricao" Type="text" />
         </EntityType>
         <EntityType Name="Funcionarios">
           <Key>
@@ -30,8 +30,8 @@
           <Property Name="Cpf" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Cep" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Idade" Type="int" Nullable="false" />
-          <Property Name="Cargo" Type="int" Nullable="false" />
-          <Property Name="Departamento" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="int" />
+          <Property Name="Departamento" Type="int" />
         </EntityType>
         <EntityType Name="Horas">
           <Key>
@@ -51,7 +51,9 @@
           <Property Name="Senha" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_Funcionarios_Cargos">
-          <End Role="Cargos" Type="Self.Cargos" Multiplicity="1" />
+          <End Role="Cargos" Type="Self.Cargos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cargos">
@@ -63,7 +65,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Funcionarios_Departamentos">
-          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departamentos">
@@ -114,7 +118,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Meta" Type="Int32" />
           <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Funcionarios_Cargos" FromRole="Cargos" ToRole="Funcionarios" />
         </EntityType>
@@ -123,8 +127,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Funcionarios_Departamentos" FromRole="Departamentos" ToRole="Funcionarios" />
         </EntityType>
         <EntityType Name="Funcionarios">
@@ -136,8 +140,8 @@
           <Property Name="Cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cep" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Idade" Type="Int32" Nullable="false" />
-          <Property Name="Cargo" Type="Int32" Nullable="false" />
-          <Property Name="Departamento" Type="Int32" Nullable="false" />
+          <Property Name="Cargo" Type="Int32" />
+          <Property Name="Departamento" Type="Int32" />
           <NavigationProperty Name="Cargos" Relationship="Self.FK_Funcionarios_Cargos" FromRole="Funcionarios" ToRole="Cargos" />
           <NavigationProperty Name="Departamentos" Relationship="Self.FK_Funcionarios_Departamentos" FromRole="Funcionarios" ToRole="Departamentos" />
           <NavigationProperty Name="Horas" Relationship="Database1Model.FK_Horas_Funcionarios" FromRole="Funcionarios" ToRole="Horas" />
@@ -161,7 +165,7 @@
           <Property Name="Senha" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_Funcionarios_Cargos">
-          <End Role="Cargos" Type="Self.Cargos" Multiplicity="1" />
+          <End Role="Cargos" Type="Self.Cargos" Multiplicity="0..1" />
           <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cargos">
@@ -173,7 +177,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Funcionarios_Departamentos">
-          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="0..1" />
           <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departamentos">

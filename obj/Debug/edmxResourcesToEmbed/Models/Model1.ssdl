@@ -5,7 +5,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nchar" MaxLength="10" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
     <Property Name="Meta" Type="int" />
   </EntityType>
   <EntityType Name="Departamentos">
@@ -13,8 +13,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Descricao" Type="text" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descricao" Type="text" />
   </EntityType>
   <EntityType Name="Funcionarios">
     <Key>
@@ -25,8 +25,8 @@
     <Property Name="Cpf" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Cep" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Idade" Type="int" Nullable="false" />
-    <Property Name="Cargo" Type="int" Nullable="false" />
-    <Property Name="Departamento" Type="int" Nullable="false" />
+    <Property Name="Cargo" Type="int" />
+    <Property Name="Departamento" Type="int" />
   </EntityType>
   <EntityType Name="Horas">
     <Key>
@@ -46,7 +46,9 @@
     <Property Name="Senha" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <Association Name="FK_Funcionarios_Cargos">
-    <End Role="Cargos" Type="Self.Cargos" Multiplicity="1" />
+    <End Role="Cargos" Type="Self.Cargos" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cargos">
@@ -58,7 +60,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Funcionarios_Departamentos">
-    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Departamentos">

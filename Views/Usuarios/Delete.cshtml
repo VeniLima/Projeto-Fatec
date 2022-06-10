@@ -29,12 +29,27 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    <form method="post" onsubmit="confirmDelete(event, this)">
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar a lista", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a class="btn btn-info" href="/Usuarios">Voltar a lista</a>
+            
         </div>
-    }
+    </form>
 </div>
+
+<script>
+    function confirmDelete(event, form) {
+        event.preventDefault();
+        
+
+        let decision = confirm("Deseja mesmo excluir?");
+        if (decision) {
+            form.submit();
+        }
+        
+
+    }
+</script>

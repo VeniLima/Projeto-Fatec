@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Cargos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <p>Nome</p>
+        </th>
+        <th>
+            <p>Cpf</p>
+        </th>
+        <th>
+            <p>Cep</p>
+        </th>
+        <th>
+            <p>Idade</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               <p>@item.Nome</p>
+            </td>
+            <td>
+                <a>@item.Cpf</a>
+            </td>
+            <td>
+                <a>@item.Cep</a>
+            </td>
+            <td>
+                <a>@item.Idade</a>
+            </td>
+            <td>
+                <a class="btn btn-success" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
+                <a class="btn btn-warning" href="/Funcionarios/edit/@item.Id">Editar </a> |
+                <a class="btn btn-danger" href="/Funcionarios/delete/@item.Id">Excluir </a>
+            </td>
+        </tr>
+    }
+
+    </table>

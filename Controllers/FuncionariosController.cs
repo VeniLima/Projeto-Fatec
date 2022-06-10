@@ -14,6 +14,35 @@ namespace AgoraVaiRecursosHumanos.Controllers
     {
         private Database1Entities db = new Database1Entities();
 
+
+        public ActionResult Menu()
+        {
+            if (Session.Count != 0)
+            {
+                var cargos = db.Cargos;
+                return View(cargos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+
+        }
+
+        public ActionResult List(int? id)
+        {
+
+            //Funcionarios funcionarios = db.Funcionarios.Where(i => i.Cargo == id).FirstOrDefault();
+            //Cargos cargos = db.Cargos.Find(id);
+            var funcionarios = db.Funcionarios.Where(p => p.Cargo == id);
+            return View(funcionarios.ToList());
+            
+        }
+
+
+
+
         // GET: Funcionarios
         public ActionResult Index()
         {
@@ -164,6 +193,8 @@ namespace AgoraVaiRecursosHumanos.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Funcionarios funcionarios = db.Funcionarios.Find(id);
+            //var horas = db.Horas.Where(p => p.Funcionario == id);
+            
             db.Funcionarios.Remove(funcionarios);
             db.SaveChanges();
             return RedirectToAction("Index");

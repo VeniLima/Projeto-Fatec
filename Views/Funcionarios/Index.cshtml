@@ -7,7 +7,7 @@
 <h2>Funcionarios</h2>
 
 <p>
-    @Html.ActionLink("Criar novo", "Create")
+   <a class="btn btn-success" href="/funcionarios/create">Criar novo</a>
 </p>
 <table class="table">
     <tr>
@@ -53,7 +53,7 @@
             @Html.DisplayFor(modelItem => item.Departamentos.Nome)
         </td>
         <td>
-            <a class="btn btn-success" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
+            <a class="btn btn-primary" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
             <a class="btn btn-warning" href="/Funcionarios/edit/@item.Id">Editar </a> |
             <a class="btn btn-danger" href="/Funcionarios/delete/@item.Id">Excluir </a>
         </td>

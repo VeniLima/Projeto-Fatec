@@ -25,8 +25,8 @@ namespace AgoraVaiRecursosHumanos.Models
         public string Cpf { get; set; }
         public string Cep { get; set; }
         public int Idade { get; set; }
-        public int Cargo { get; set; }
-        public int Departamento { get; set; }
+        public Nullable<int> Cargo { get; set; }
+        public Nullable<int> Departamento { get; set; }
     
         public virtual Cargos Cargos { get; set; }
         public virtual Departamentos Departamentos { get; set; }
