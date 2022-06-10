@@ -43,13 +43,9 @@
 <script>
     function confirmDelete(event, form) {
         event.preventDefault();
-        
-
         let decision = confirm("Deseja mesmo excluir?");
         if (decision) {
             form.submit();
         }
-        
-
     }
 </script>

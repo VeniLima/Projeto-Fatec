@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", @oninput = "mask(this)" } })
                 @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control", @oninput = "cepMask(this)" } })
                 @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,7 +65,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Criar" class="btn btn-default" />
+                <input type="submit" value="Criar" class="btn btn-success" />
             </div>
         </div>
     </div>
@@ -78,3 +78,28 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    function mask(i) {
+
+        var v = i.value;
+
+        if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+            i.value = v.substring(0, v.length - 1);
+            return;
+        }
+        i.setAttribute("maxlength", "14");
+        if (v.length == 3 || v.length == 7) i.value += ".";
+        if (v.length == 11) i.value += "-";
+    };
+
+    function cepMask(i) {
+        var v = i.value;
+        if (isNaN(v[v.length - 1])) { // impede entrar outro caracasdtere que não seja número
+            i.value = v.substring(0, v.length - 1);
+            return;
+        };
+        i.setAttribute("maxlength", "9");
+        if (v.length == 5) i.value += "-";
+    };
+</script>

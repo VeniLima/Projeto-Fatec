@@ -74,7 +74,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Horas_Funcionarios">
-    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="0..1" />
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Horas" Type="Self.Horas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Funcionarios">

@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<AgoraVaiRecursosHumanos.Models.Cargos>
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
 
 <h2>Cargos</h2>
 
 <p>
-    @Html.ActionLink("Criar Novo", "Create")
+    <a class="btn btn-success" href="/cargos/create">Cadastrar</a>
 </p>
 <table class="table">
     <tr>
@@ -22,19 +20,22 @@
 
     @foreach (var item in Model)
     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Meta)
-                    </td>
-                    <td>
-                        <a class="btn btn-success" href="/Cargos/Details/@item.Id"> Consulta </a> |
-                        <a class="btn btn-warning" href="/Cargos/edit/@item.Id">Editar </a> |
-                        <a class="btn btn-danger" href="/Cargos/delete/@item.Id">Excluir </a>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Meta)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="/Cargos/Details/@item.Id"> Consulta </a> |
+        <a class="btn btn-warning" href="/Cargos/edit/@item.Id">Editar </a> |
+        <a class="btn btn-danger" href="/Cargos/delete/@item.Id">Excluir </a>
 
-                    </td>
-                </tr>}
+    </td>
+</tr>
+}
 
 </table>
+
+

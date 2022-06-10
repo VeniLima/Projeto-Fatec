@@ -7,7 +7,7 @@
 <h2>Horas</h2>
 
 <p>
-    @Html.ActionLink("Criar novo", "Create")
+    <a class="btn btn-success" href="/horas/create">Cadastrar</a>
 </p>
 <table class="table">
     <tr>
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Funcionarios.Nome)
         </td>
         <td>
-            <a class="btn btn-success" href="/Horas/Details/@item.Id"> Consulta </a> |
+            <a class="btn btn-primary" href="/Horas/Details/@item.Id"> Consulta </a> |
             <a class="btn btn-warning" href="/Horas/edit/@item.Id">Editar </a> |
             <a class="btn btn-danger" href="/Horas/delete/@item.Id">Excluir </a>
         </td>
