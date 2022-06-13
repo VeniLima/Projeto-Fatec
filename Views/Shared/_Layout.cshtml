@@ -1,12 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(0, 37, 62, 0.84)">
@@ -31,40 +34,69 @@
 
                 @if (Session.Count != 0)
                 {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Menu", "Guia", "Home")</li>
-                <li>@Html.ActionLink("Funcionarios", "Index", "Funcionarios")</li>
-                <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
-                <li>@Html.ActionLink("Departamentos", "Index", "Departamentos")</li>
-                <li>@Html.ActionLink("Horas", "Create", "Horas")</li>
-                
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="">@Html.ActionLink("Olá, " + (Session["Nome"]) as string, "Details/" + (@Session["Perfil"]) as string, "Usuarios")</li>
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Menu", "Guia", "Home")</li>
+                        <li>@Html.ActionLink("Funcionarios", "Index", "Funcionarios")</li>
+                        <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
+                        <li>@Html.ActionLink("Departamentos", "Index", "Departamentos")</li>
+                        <li>@Html.ActionLink("Horas", "Create", "Horas")</li>
 
-                <li class="">@Html.ActionLink("Sair", "Logout", "Home")</li>
-            </ul>}
-                    
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">@Html.ActionLink("Olá, " + (Session["Nome"]) as string, "Details/" + (@Session["Perfil"]) as string, "Usuarios")</li>
 
-                </div>
-          
+                        <li class="">@Html.ActionLink("Sair", "Logout", "Home")</li>
+                    </ul>}
+
+
+            </div>
+
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    <!--Scripts.Render("~/bundles/jquery")-->
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
+<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
 <style>
     body {
         background-color: rgba(146, 213, 235, 0.7);
     }
 </style>
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $("#cpf").inputmask("999.999.999-99", { "clearIncomplete": true });
+        $("#cep").inputmask("99999-999", { "clearIncomplete": true });
+    });
+
+    $(document).ready(function () {
+        $("#myTable").DataTable({
+            "language": {
+                "lengthMenu": "Exibe _MENU_ Registros por página",
+                "search": "Procurar",
+                "paginate": { "previous": "Retorna", "next": "Avança" },
+                "zeroRecords": "Nada foi encontrado",
+                "info": "Exibindo página _PAGE_ de _PAGES_",
+                "infoEmpty": "Sem registros",
+                "infoFiltered": "(filtrado de _MAX_ regitros totais)"
+            }
+        });
+    });
+
+</script>

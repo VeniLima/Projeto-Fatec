@@ -12,13 +12,13 @@
                 <form method="post">
                     <div class="jumbotron jumbotron-fluid" style="background-image: url('https://wallpaperaccess.com/full/4893759.jpg'); background-repeat: no-repeat; background-size: cover; display: block; padding: 100px 100px 100px 100px ">
                         <p class="lead fw-normal mb-0 me-3 h1" style="color: white">Realize seu login</p>
-                       
+
                     </div>
 
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form3Example3">Usuario</label>
-                        <input required  name="login" type="text" class="form-control form-control-lg"
+                        <input required name="login" type="text" class="form-control form-control-lg"
                                placeholder="Nome de usuario" />
 
                     </div>
@@ -26,25 +26,33 @@
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="form3Example4">Senha</label>
-                        <input required  name="senha" type="password" class="form-control form-control-lg"
+                        <input required name="senha" type="password" class="form-control form-control-lg"
                                placeholder="Senha" />
+                        @if (ViewBag.erroSenha != null)
+                        {
 
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Não foi possível acessar o sistema</strong> - @ViewBag.erroSenha
+                            </div>
+
+                        }
                     </div>
 
-                 <br />
+                    <br />
                     <div class="">
                         <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">
                             Login
                         </button>
-                       
+
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
-    
- 
+
+
 </section>
 

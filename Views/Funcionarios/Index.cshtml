@@ -1,63 +1,69 @@
 ﻿@model IEnumerable<AgoraVaiRecursosHumanos.Models.Funcionarios>
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
+
 
 <h2>Funcionarios</h2>
 
 <p>
-   <a class="btn btn-success" href="/funcionarios/create">Criar novo</a>
+    <a class="btn btn-success" href="/funcionarios/create">Criar novo</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Idade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cargos.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Departamentos.Nome)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cpf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Idade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cargos.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Departamentos.Nome)
-        </td>
-        <td>
-            <a class="btn btn-primary" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
-            <a class="btn btn-warning" href="/Funcionarios/edit/@item.Id">Editar </a> |
-            <a class="btn btn-danger" href="/Funcionarios/delete/@item.Id">Excluir </a>
-        </td>
-    </tr>
-}
-
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                <p>Cargo</p>
+            </th>
+            <th>
+                <p>Departamento</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cpf)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cep)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Idade)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cargos.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Departamentos.Nome)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="/Funcionarios/Details/@item.Id"> Consulta </a> |
+        <a class="btn btn-warning" href="/Funcionarios/edit/@item.Id">Editar </a> |
+        <a class="btn btn-danger" href="/Funcionarios/delete/@item.Id">Excluir </a>
+    </td>
+</tr>}
+    </tbody>
 </table>
+
+<script type="text/javascript">
+  
+
+</script>

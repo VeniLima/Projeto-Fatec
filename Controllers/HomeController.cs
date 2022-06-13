@@ -20,14 +20,7 @@ namespace AgoraVaiRecursosHumanos.Controllers
         [HttpPost]
         public ActionResult Login(String login, String senha)
         {
-            if (login == null || login == "")
-            {
-                ViewBag.erroLogin = "Erro Login";
-            }
-            if (senha == null || senha == "")
-            {
-                ViewBag.erroSenha = "Erro Senha";
-            }
+            
 
             var vLogin = db.Usuarios.Where(p => p.Login.Trim().Equals(login.Trim())).FirstOrDefault();
             if (vLogin != null)
@@ -49,6 +42,7 @@ namespace AgoraVaiRecursosHumanos.Controllers
                 else
                 {
 
+                    ViewBag.erroSenha = "Senha não confere";
                     return View();
                 }
 
