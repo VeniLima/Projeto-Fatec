@@ -177,3 +177,4 @@ C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecurso
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.csproj.CopyComplete
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.dll
 C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.pdb
+C:\Users\tando\Documents\ProjetoAgoraVai\Projeto-Fatec\obj\Debug\AgoraVaiRecursosHumanos.csproj.AssemblyReference.cache

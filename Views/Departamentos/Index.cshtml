@@ -9,18 +9,23 @@
 <p>
     <a href="/departamentos/create" class="btn btn-success">Cadastrar</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
-@foreach (var item in Model) {
+
+        @foreach (var item in Model)
+        {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
@@ -33,7 +38,6 @@
             <a class="btn btn-warning" href="/Departamentos/edit/@item.Id">Editar </a> |
             <a class="btn btn-danger" href="/Departamentos/delete/@item.Id">Excluir </a>
         </td>
-    </tr>
-}
-
+    </tr>}
+    </tbody>
 </table>
