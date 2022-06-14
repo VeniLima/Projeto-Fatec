@@ -33,11 +33,15 @@ namespace AgoraVaiRecursosHumanos.Controllers
         public ActionResult List(int? id)
         {
 
-            //Funcionarios funcionarios = db.Funcionarios.Where(i => i.Cargo == id).FirstOrDefault();
-            //Cargos cargos = db.Cargos.Find(id);
-            var funcionarios = db.Funcionarios.Where(p => p.Cargo == id);
-            return View(funcionarios.ToList());
-            
+            if (Session.Count != 0)
+            {
+                var funcionarios = db.Funcionarios.Where(p => p.Cargo == id);
+                return View(funcionarios.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }    
         }
 
 
